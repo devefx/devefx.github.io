@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns="http://devefx.github.io/schema/form-validation"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://devefx.github.io/schema/form-validation"
+            elementFormDefault="qualified"
+            attributeFormDefault="unqualified">
+
+    <xsd:complexType name="varType">
+        <xsd:attribute name="name" type="xsd:string" use="required"/>
+        <xsd:attribute name="type" type="xsd:string"/>
+        <xsd:attribute name="value" type="xsd:string" use="required"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="validatorType">
+        <xsd:attribute name="classname" type="xsd:string" use="required"/>
+        <xsd:attribute name="message" type="xsd:string"/>
+        <xsd:attribute name="arg0" type="xsd:string"/>
+        <xsd:attribute name="arg1" type="xsd:string"/>
+        <xsd:attribute name="arg2" type="xsd:string"/>
+        <xsd:attribute name="arg3" type="xsd:string"/>
+        <xsd:attribute name="arg4" type="xsd:string"/>
+        <xsd:attribute name="arg5" type="xsd:string"/>
+        <xsd:attribute name="arg6" type="xsd:string"/>
+        <xsd:attribute name="arg7" type="xsd:string"/>
+        <xsd:attribute name="arg8" type="xsd:string"/>
+        <xsd:attribute name="arg9" type="xsd:string"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="fieldType">
+        <xsd:choice minOccurs="1" maxOccurs="unbounded">
+            <xsd:element name="validator" type="validatorType">
+                <xsd:annotation>
+                    <xsd:documentation><![CDATA[
+
+                    ]]></xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:choice>
+        <xsd:attribute name="name" type="xsd:string" use="required"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="formType">
+        <xsd:choice minOccurs="1" maxOccurs="unbounded">
+            <xsd:element name="field" type="fieldType">
+                <xsd:annotation>
+                    <xsd:documentation><![CDATA[
+
+                    ]]></xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:choice>
+    </xsd:complexType>
+
+    <xsd:element name="form-validation">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="var" type="varType" minOccurs="0" maxOccurs="unbounded"/>
+                <xsd:element name="form" type="formType" maxOccurs="1"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+</xsd:schema>
