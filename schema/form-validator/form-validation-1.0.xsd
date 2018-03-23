@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<xsd:schema xmlns="http://devefx.github.io/schema/form-validation"
+<xsd:schema xmlns="http://devefx.github.io/schema/form-validator"
             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-            targetNamespace="http://devefx.github.io/schema/form-validation"
+            targetNamespace="http://devefx.github.io/schema/form-validator"
             elementFormDefault="qualified"
             attributeFormDefault="unqualified">
 
@@ -12,7 +12,7 @@
     </xsd:complexType>
 
     <xsd:complexType name="validatorType">
-        <xsd:attribute name="classname" type="xsd:string" use="required"/>
+        <xsd:attribute name="class" type="xsd:string" use="required"/>
         <xsd:attribute name="message" type="xsd:string"/>
         <xsd:attribute name="arg0" type="xsd:string"/>
         <xsd:attribute name="arg1" type="xsd:string"/>
@@ -31,12 +31,11 @@
             <xsd:element name="validator" type="validatorType">
                 <xsd:annotation>
                     <xsd:documentation><![CDATA[
-
                     ]]></xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
         </xsd:choice>
-        <xsd:attribute name="name" type="xsd:string" use="required"/>
+        <xsd:attribute name="property" type="xsd:string" use="required"/>
     </xsd:complexType>
 
     <xsd:complexType name="formType">
@@ -44,7 +43,6 @@
             <xsd:element name="field" type="fieldType">
                 <xsd:annotation>
                     <xsd:documentation><![CDATA[
-
                     ]]></xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
